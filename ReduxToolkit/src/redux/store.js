@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { counterReducer } from "./counter";
+import logger from "redux-logger";
+import counterReducer from "./counter";
 
 //
 // store
@@ -10,6 +11,7 @@ const store = createStore(rootReducer, devTools); */
 
 // after
 export const store = configureStore({
-  reducer: counterReducer,
-  // middleware: [thunk, logger, ...getDefaultMiddleware(),],  미들웨어 추가 가능
+  reducer: { counter: counterReducer },
+  // eslint-disable-next-line no-undef
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger), // 미들웨어 추가 가능
 });
