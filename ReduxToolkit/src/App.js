@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, counterSelector } from "./redux/counter";
+import { axiosTodos, todosSelector } from "./redux/todos";
 
 function App() {
   const count = useSelector(counterSelector);
+  const todos = useSelector(todosSelector);
   const dispatch = useDispatch();
 
   return (
     <div>
-      <p>
-        Clicked: <span id="value">{count.value}</span> times
+      <section>
+        <h1>Click</h1>
+        <span> Clicked: {count.value} times</span>
         <button id="increment" onClick={() => dispatch(increment())}>
           +
         </button>
@@ -16,12 +19,21 @@ function App() {
           -
         </button>
         <button id="incrementAsync">Increment async</button>
-      </p>
-      <p>
-        <span>todos</span>
-        <button id="todos">get todos</button>
-        {count.data}
-      </p>
+      </section>
+
+      <section>
+        <h1>Todos</h1>
+        <button id="todos" onClick={() => dispatch(axiosTodos())}>
+          get todos
+        </button>
+        {todos.loading ? <div>loading</div> : null}
+        {todos.data ? (
+          <article>
+            <div>userId: {todos.data.userId}</div>
+            <div>title: {todos.data.title}</div>
+          </article>
+        ) : null}
+      </section>
     </div>
   );
 }
