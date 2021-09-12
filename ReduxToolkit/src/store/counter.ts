@@ -3,10 +3,10 @@ import {
   createAsyncThunk,
   createReducer,
   createSlice,
+  PayloadAction,
 } from "@reduxjs/toolkit";
 
 /* before
-
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
 
@@ -43,26 +43,33 @@ export const counterReducer = createReducer(0, {
 });
 
 */
+// createSlice 사용!  action + reducer
 
-// createSlice 사용!
-// action + reducer
+export interface CounterState {
+  isLoading: boolean;
+  value: number;
+  error: boolean;
+}
+
+const initialState: CounterState = {
+  isLoading: false,
+  value: 0,
+  error: false,
+};
+
 export const counterSlice = createSlice({
   name: "counter",
-  initialState: {
-    loading: false,
-    value: 0,
-    error: false,
-  },
+  initialState,
   reducers: {
-    increment: (state) => {
+    increment: (state, action: PayloadAction<number>) => {
       state.value += 1;
     },
-    decrement: (state) => {
+    decrement: (state, action: PayloadAction<number>) => {
       state.value -= 1;
     },
   },
 });
 
-export const counterSelector = (state) => state.counter; // state
+export const counterSelector = (state: any) => state.counter; // state
 export const { increment, decrement } = counterSlice.actions; // 액션 생성 함수
 export default counterSlice.reducer;

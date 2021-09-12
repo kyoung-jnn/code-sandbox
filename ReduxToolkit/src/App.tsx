@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, counterSelector } from "./redux/counter";
-import { axiosTodos, todosSelector } from "./redux/todos";
+import { increment, decrement, counterSelector } from "./store/counter";
+import { getTodos, todosSelector } from "./store/todos";
 
 function App() {
   const count = useSelector(counterSelector);
   const todos = useSelector(todosSelector);
+
   const dispatch = useDispatch();
 
   return (
     <div>
       <section>
-        <h1>Click</h1>
+        <h1>RTK Basic</h1>
         <span> Clicked: {count.value} times</span>
         <button id="increment" onClick={() => dispatch(increment())}>
           +
@@ -22,8 +23,8 @@ function App() {
       </section>
 
       <section>
-        <h1>Todos</h1>
-        <button id="todos" onClick={() => dispatch(axiosTodos())}>
+        <h1>RTK createAsyncThunk</h1>
+        <button id="todos" onClick={() => dispatch(getTodos())}>
           get todos
         </button>
         {todos.loading ? <div>loading</div> : null}
