@@ -1,25 +1,26 @@
 import React from "react";
-import logo from "./logo.svg";
 
-function App() {
+import { useGetPostQuery, useGetPostsQuery } from "./redux/todos";
+
+const App: React.FC = () => {
+  // Hooks를 사용하면 자동으로 데이터를 가져오고 쿼리로부터 얻은 값을 반환합니다.
+  const { data, error, isLoading } = useGetPostQuery("1");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <h1>RTK Query</h1>
+      {error ? (
+        <>앗, 오류가 발생했습니다.</>
+      ) : isLoading ? (
+        <>로딩중...</>
+      ) : data ? (
+        <>
+          <h3>{data.title}</h3>
+          <div>{data.body}</div>
+        </>
+      ) : null}
+    </section>
   );
-}
+};
 
 export default App;

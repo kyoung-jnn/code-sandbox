@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, counterSelector } from "./store/counter";
-import { getTodos, todosSelector } from "./store/todos";
+import { increment, decrement, counterSelector } from "./redux/counter";
+import { getTodos, todosSelector } from "./redux/todos";
 
 function App() {
   const count = useSelector(counterSelector);
@@ -19,7 +19,6 @@ function App() {
         <button id="decrement" onClick={() => dispatch(decrement())}>
           -
         </button>
-        <button id="incrementAsync">Increment async</button>
       </section>
 
       <section>
@@ -27,8 +26,9 @@ function App() {
         <button id="todos" onClick={() => dispatch(getTodos())}>
           get todos
         </button>
-        {todos.loading ? <div>loading</div> : null}
-        {todos.data ? (
+        {todos.isLoading ? (
+          <div>loading...</div>
+        ) : todos.data ? (
           <article>
             <div>userId: {todos.data.userId}</div>
             <div>title: {todos.data.title}</div>

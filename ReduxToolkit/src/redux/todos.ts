@@ -1,17 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { buildQueries } from "@testing-library/dom";
 import axios from "axios";
 
-interface TodosState {
-  isLoading: boolean;
-  data: any;
-  error: boolean;
-}
-
-//
 // createAsyncThunk
 export const getTodos = createAsyncThunk("todos/axiosTodos", async () => {
-  // 비동기 호출 함수를 정의
   try {
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/todos/1"
@@ -21,6 +12,12 @@ export const getTodos = createAsyncThunk("todos/axiosTodos", async () => {
     console.log(error);
   }
 });
+
+export interface TodosState {
+  isLoading: boolean;
+  data: any;
+  error: boolean;
+}
 
 const initialState: TodosState = {
   isLoading: false,
@@ -57,9 +54,18 @@ export const todosSlice = createSlice({
   reducers: {},
   // builder 형식의 typescript 구성
   extraReducers: (builder) => {
-    builder.addCase(getTodos.pending, (state) => {
-      state.isLoading = true;
-    });
+    builder
+      .addCase(getTodos.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getTodos.fulfilled, (state, { payload }: PayloadAction<any>) => {
+        state.data = payload;
+        state.isLoading = false;
+      })
+      .addCase(getTodos.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
+      });
   },
 });
 

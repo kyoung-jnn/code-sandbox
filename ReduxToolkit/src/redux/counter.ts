@@ -1,10 +1,4 @@
-import {
-  createAction,
-  createAsyncThunk,
-  createReducer,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
 
 /* before
 const INCREMENT = "INCREMENT";
@@ -38,11 +32,11 @@ export const increment = createAction("counter/increment");
 export const decrement = createAction("counter/decrement");
 
 export const counterReducer = createReducer(0, {
-  [increment]: (state, action) => state + 1,
-  [decrement]: (state, action) => state - 1,
+  [increment.type]: (state, action: PayloadAction<any>) => state + 1,
+  [decrement.type]: (state, action: PayloadAction<any>) => state - 1,
 });
 
-*/
+ */
 // createSlice 사용!  action + reducer
 
 export interface CounterState {
@@ -61,10 +55,10 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    increment: (state, action: PayloadAction<number>) => {
+    increment: (state) => {
       state.value += 1;
     },
-    decrement: (state, action: PayloadAction<number>) => {
+    decrement: (state) => {
       state.value -= 1;
     },
   },

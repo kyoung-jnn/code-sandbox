@@ -11,14 +11,14 @@ const store = createStore(rootReducer, devTools);
 
 // after
 
-const middleware = (getDefaultMiddleware: any) =>
-  getDefaultMiddleware().concat(logger);
-
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     counter: counterReducer,
     todos: todosReducer,
-    // [pokemonApi.reducerPath]: pokemonApi.reducer,
   },
-  middleware, // 미들웨어 추가 가능
+  middleware: (getDefaultMiddleware: any) =>
+    getDefaultMiddleware().concat(logger), // 미들웨어 추가 가능
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export default store;
