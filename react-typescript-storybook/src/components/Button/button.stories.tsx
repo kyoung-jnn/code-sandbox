@@ -1,18 +1,41 @@
-import Button from ".";
-
+import { Button, ButtonProps } from "./index";
+import { Story } from "@storybook/react";
 export default {
-  title: "components|Button",
+  title: "Components/Button",
   component: Button,
+  argTypes: {
+    size: {
+      options: ["small", "medium", "large"],
+      control: { type: "radio" },
+    },
+    bgColor: {
+      options: ["white", "black", "red"],
+      control: { type: "select" },
+    },
+  },
 };
 
-export const button = () => {
-  return <Button>BUTTON</Button>;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+
+export const DefaultButton = Template.bind({});
+DefaultButton.args = {
+  label: "default",
 };
 
-button.story = {
-  name: "Default",
+export const SmallButton = Template.bind({});
+SmallButton.args = {
+  label: "small",
+  size: "small",
 };
 
-export const primaryButton = () => {
-  return <Button>PRIMARY</Button>;
+export const MediumButton = Template.bind({});
+MediumButton.args = {
+  label: "medium",
+  size: "medium",
+};
+
+export const LargeButton = Template.bind({});
+LargeButton.args = {
+  label: "large",
+  size: "large",
 };

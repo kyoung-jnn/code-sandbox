@@ -1,16 +1,23 @@
+import React from "react";
+import cn from "classnames";
 import "./button.scss";
 
-export type ButtonProps = {
-  children: React.ReactNode;
-  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-};
+export interface ButtonProps {
+  label: string;
+  bgColor?: string;
+  size?: "small" | "medium" | "large";
+  onClick?: () => void;
+}
 
-const Button = ({ children, onClick }: ButtonProps) => {
+export const Button: React.FC<ButtonProps> = ({
+  size = "medium", // default
+  bgColor = "white",
+  label,
+  ...props
+}) => {
   return (
-    <button className="button" onClick={onClick}>
-      {children}
+    <button className={cn("defaultButton", size, bgColor)} {...props}>
+      {label}
     </button>
   );
 };
-
-export default Button;

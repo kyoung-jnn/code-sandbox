@@ -34,7 +34,7 @@ module.exports = (env, argv) => {
           use: ["babel-loader", "ts-loader"],
         },
         {
-          test: /\.(css|scss)$/,
+          test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
             "css-loader",
@@ -64,9 +64,6 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      new webpack.ProvidePlugin({
-        React: "react", // 자주 사용되는 모듈 지정
-      }),
       new webpack.HotModuleReplacementPlugin(), // 개발 모드시 코드 핫로드 가능
       new HtmlWebpackPlugin({
         template: "./public/index.html", // 템플릿 경로 설정
