@@ -28,12 +28,13 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(ts|tsx)$/,
+          test: /\.(ts|tsx)?$/,
           exclude: /node_module/,
           use: ["babel-loader", "ts-loader"],
         },
         {
-          test: /\.scss$/,
+          test: /\.scss?$/,
+          exclude: /node_module/,
           use: [
             MiniCssExtractPlugin.loader,
             "css-loader",
@@ -44,10 +45,10 @@ module.exports = (env, argv) => {
               },
             },
           ],
-          include: path.resolve(__dirname, "./src"),
         },
         {
           test: /\.(png|jpg|jpeg|gif)$/,
+          exclude: /node_module/,
           use: {
             loader: "url-loader",
             options: {
@@ -60,6 +61,9 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new webpack.ProvidePlugin({
+        React: "react", // 자주 사용되는 모듈 지정
+      }),
       new webpack.HotModuleReplacementPlugin(), // 개발 모드시 코드 핫로드 가능
       new HtmlWebpackPlugin({
         template: "./public/index.html", // 템플릿 경로 설정
@@ -67,6 +71,7 @@ module.exports = (env, argv) => {
           // 템플릿에 주입할 파라매터 변수 지정
           env: prod ? "" : "(개발용)",
         },
+        favicon: "./src/assets/logo.png",
         minify: prod
           ? {
               // 배포 모드시 최적화
