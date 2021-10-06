@@ -1,12 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import TodoItem from "./TodoItem";
-
-interface ITodo {
-  id: number;
-  text: string;
-  done: boolean;
-}
+import ITodo from "types/todo";
 
 describe("<TodoItem />", () => {
   const sampleTodo = {
@@ -54,7 +49,7 @@ describe("<TodoItem />", () => {
     expect(span).not.toHaveStyle("text-decoration: line-through;");
   });
 
-  it("call onToggle", () => {
+  it("onToggle 메소드", () => {
     const onToggle = jest.fn();
     const { getByText } = render(
       <TodoItem todo={sampleTodo} onToggle={onToggle} />
@@ -65,7 +60,7 @@ describe("<TodoItem />", () => {
     expect(onToggle).toBeCalledWith(sampleTodo.id);
   });
 
-  it("call onToggle", () => {
+  it("onRemove 메소드", () => {
     const onRemove = jest.fn();
     const { getByText } = render(
       <TodoItem todo={sampleTodo} onRemove={onRemove} />

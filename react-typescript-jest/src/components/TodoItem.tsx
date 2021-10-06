@@ -1,10 +1,5 @@
 import React, { ReactNode, useCallback } from "react";
-
-interface ITodo {
-  id: number;
-  text: string;
-  done: boolean;
-}
+import ITodo from "types/todo";
 
 interface TodoItemProps {
   children?: ReactNode;

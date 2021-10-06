@@ -3,6 +3,7 @@ import React, { useState, useCallback } from "react";
 interface TodoFormProps {
   onInsert?: any;
 }
+
 const TodoForm: React.FC<TodoFormProps> = ({ onInsert }) => {
   const [value, setValue] = useState("");
   const onChange = useCallback((e) => {
@@ -18,7 +19,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onInsert }) => {
   );
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} data-testid="TodoForm">
       <input
         placeholder="할 일을 입력하세요"
         value={value}
