@@ -9,6 +9,7 @@ interface TodoListProp {
 }
 
 const TodoList: React.FC<TodoListProp> = ({ todos, onToggle, onRemove }) => {
+  console.log(todos);
   return (
     <ul data-testid="TodoList">
       {todos.map((todo) => (

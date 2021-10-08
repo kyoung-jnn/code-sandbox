@@ -11,9 +11,9 @@ const TodoForm: React.FC<TodoFormProps> = ({ onInsert }) => {
   }, []);
   const onSubmit = useCallback(
     (e) => {
+      e.preventDefault();
       onInsert(value);
       setValue("");
-      e.preventDefault();
     },
     [onInsert, value]
   );
