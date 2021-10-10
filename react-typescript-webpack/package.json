@@ -4,9 +4,9 @@
   "description": "react + typescript + webpack",
   "main": "index.tsx",
   "scripts": {
-    "dev": "webpack-dev-server --mode=development --open --progress",
-    "start": "webpack --mode=development --progress",
-    "build": "webpack --mode=production --progress"
+    "dev": "webpack-dev-server --mode=development --open --progress --config ./config/webpack.config.js",
+    "start": "webpack --mode=development --progress --config ./config/webpack.config.js",
+    "build": "webpack --mode=production --progress --config ./config/webpack.config.js"
   },
   "author": "",
   "license": "MIT",

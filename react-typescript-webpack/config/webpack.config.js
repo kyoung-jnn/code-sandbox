@@ -5,6 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const PROJECT_ROOT = path.resolve(__dirname, '..');
+const SRC_PATH = path.resolve(PROJECT_ROOT, 'src');
+const TEMPLATE_PATH = path.resolve(PROJECT_ROOT, 'public');
+const ASSETS_PATH = path.resolve(SRC_PATH, 'assets');
+
 module.exports = (env, argv) => {
   const prod = argv.mode === 'production';
 
@@ -16,13 +21,16 @@ module.exports = (env, argv) => {
     },
     mode: prod ? 'production' : 'development', // mode 설정
     devtool: prod ? 'hidden-source-map' : 'eval', // source map 옵션
-    entry: './src/index.tsx',
+    entry: path.resolve(SRC_PATH, 'index.tsx'),
     output: {
       filename: 'bundle.js',
       path: path.join(__dirname, '/dist'),
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        '@src': SRC_PATH,
+      },
     },
     module: {
       rules: [
@@ -32,7 +40,7 @@ module.exports = (env, argv) => {
           use: 'babel-loader',
         },
         {
-          test: /\.scss?$/,
+          test: /\.s?css?$/,
           exclude: /node_module/,
           use: [
             MiniCssExtractPlugin.loader,
@@ -61,12 +69,12 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './public/index.html', // 템플릿 경로 설정
+        template: path.resolve(TEMPLATE_PATH, 'index.html'), // 템플릿 경로 설정
         templateParameters: {
           // 템플릿에 주입할 파라매터 변수 지정
           env: prod ? '' : '(개발용)',
         },
-        favicon: './src/assets/logo.png',
+        favicon: path.resolve(ASSETS_PATH, 'favicon.ico'),
         minify: prod
           ? {
               // 배포 모드시 최적화

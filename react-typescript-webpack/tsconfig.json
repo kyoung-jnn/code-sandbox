@@ -10,9 +10,10 @@
     "rootDir": "./",
     "baseUrl": "./",
     "outDir": "./dist",
-    // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
-    // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
-    // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
+    "paths": {
+      "@src/*": ["./src/*"]
+    },
+    "typeRoots": ["./node_modules/@types,", "./@types"],
     "resolveJsonModule": true,
     "sourceMap": true,
     "removeComments": true,
