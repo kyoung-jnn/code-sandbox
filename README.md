@@ -10,9 +10,11 @@
 
 ### 📌 모든 코드 로직의 default: **(React + Typescript)**
 
-## 1. Storybook
+## 1. Webpack
 
-## 2. Webpack
+## 2. Storybook
+
+## 3. Jest
 
 ## 3. Reduxtoolkit / RTK
 
