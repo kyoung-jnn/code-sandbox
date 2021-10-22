@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.scss';
-import react from './assets/react.png';
+import '@src/App.scss';
+import react from '@src/assets/react.png';
 
 const App: React.FC = () => (
   <div className="title">
