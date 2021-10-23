@@ -5,7 +5,7 @@
 ## 주요 구성 ⚙️
 
 ```json
- "dependencies": {
+  "dependencies": {
     "@babel/runtime": "^7.15.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -27,6 +27,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
