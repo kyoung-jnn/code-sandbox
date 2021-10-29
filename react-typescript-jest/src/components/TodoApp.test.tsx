@@ -32,11 +32,11 @@ describe("<TodoApp />", () => {
     const { getByText } = render(<TodoApp />);
 
     const todoText = getByText("TDD 배우기");
+    expect(todoText).toHaveStyle("text-decoration: none;");
+    fireEvent.click(todoText);
     expect(todoText).toHaveStyle("text-decoration: line-through;");
     fireEvent.click(todoText);
     expect(todoText).not.toHaveStyle("text-decoration: line-through;");
-    fireEvent.click(todoText);
-    expect(todoText).toHaveStyle("text-decoration: line-through;");
   });
 
   it("todo 삭제", () => {

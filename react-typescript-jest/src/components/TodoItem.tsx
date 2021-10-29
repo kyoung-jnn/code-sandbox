@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback } from "react";
-import ITodo from "types/todo";
+import ITodo from "@src/types/todo";
 
 interface TodoItemProps {
   children?: ReactNode;

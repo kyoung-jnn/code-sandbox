@@ -1,6 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
-import ITodo from "types/todo";
+import ITodo from "@src/types/todo";
 
 interface TodoListProp {
   todos: ITodo[];
@@ -9,7 +9,6 @@ interface TodoListProp {
 }
 
 const TodoList: React.FC<TodoListProp> = ({ todos, onToggle, onRemove }) => {
-  console.log(todos);
   return (
     <ul data-testid="TodoList">
       {todos.map((todo) => (
