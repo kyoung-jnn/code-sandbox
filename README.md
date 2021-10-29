@@ -3,7 +3,7 @@
 개인 공부를 하거나 프로젝트를 진행하면서
 
 추후, 개발의 용이성과 복습을 위해
- 
+
 작성한 **코드 로직**을 저장해 놓는 곳입니다. 👍
 
 > 📌 **모든 코드 로직의 default = (React + Typescript / Webpack 5 + Babel 7)**
@@ -14,17 +14,17 @@
 
 - ### 2. [Storybook](#Storybook)
 
-- ### 3. Jest
+- ### 3. [Jest](#Jest)
 
 - ### 3. Reduxtoolkit / RTK
 
 - ### 4. Reduxtoolkit query / RTK query
 
-----
+---
 
 # **Webpack**
 
-**Webpack 5, Babel 7** 기본 설정, Boilerplate
+\*_Webpack 5, Babel 7, Eslint_ 기본 설정, Boilerplate
 
 ## 주요 구성 ⚙️
 
@@ -112,6 +112,54 @@
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
+    "typescript": "^4.4.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1",
+    "webpack-merge": "^5.8.0"
+  }
+```
+
+---
+
+# Jest
+
+**Jest** 기본 설정, Boilerplate
+
+## 주요 구성 ⚙️
+
+```json
+  "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.1",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.22",
+    "@types/react-dom": "^17.0.9",
+    "babel-jest": "^27.2.4",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.3.0",
+    "dotenv-webpack": "^7.0.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.2.4",
+    "mini-css-extract-plugin": "^2.3.0",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "ts-loader": "^9.2.6",
     "typescript": "^4.4.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.53.0",
