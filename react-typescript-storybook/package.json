@@ -8,7 +8,8 @@
     "start": "webpack --progress --config ./config/webpack.dev.js",
     "build": "webpack --progress --config ./config/webpack.prod.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=7fdd53181a14"
   },
   "author": "",
   "license": "MIT",
@@ -32,6 +33,7 @@
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.9",
     "babel-loader": "^8.2.2",
+    "chromatic": "^6.0.5",
     "classnames": "^2.3.1",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
@@ -39,6 +41,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.3.0",
+    "react-docgen-typescript": "^2.1.1",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",

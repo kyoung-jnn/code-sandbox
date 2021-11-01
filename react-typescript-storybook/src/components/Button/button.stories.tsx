@@ -1,19 +1,23 @@
+import React from "react";
 import { Button, ButtonProps } from "./index";
-import { Story } from "@storybook/react";
+import { Story, Meta } from "@storybook/react";
+
 export default {
   title: "Components/Button",
   component: Button,
-  argTypes: {
-    size: {
-      options: ["small", "medium", "large"],
-      control: { type: "radio" },
-    },
-    bgColor: {
-      options: ["white", "black", "red"],
-      control: { type: "select" },
+  parameters: {
+    docs: {
+      description: {
+        component: "전체 설명",
+      },
     },
   },
-};
+  argTypes: {
+    label: {
+      description: "Props에 대한 설명",
+    },
+  },
+} as Meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 

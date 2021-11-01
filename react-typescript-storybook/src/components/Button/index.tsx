@@ -3,6 +3,8 @@ import cn from "classnames";
 import "./button.scss";
 
 export interface ButtonProps {
+  /**  description 설명
+   */
   label: string;
   bgColor?: string;
   size?: "small" | "medium" | "large";
