@@ -21,7 +21,7 @@ export default {
 const Template: Story<ButtonGroupProp> = (args) => {
   return (
     <ButtonGroup {...args}>
-      <Button label="저장"></Button>
+      <Button label="확인"></Button>
       <Button label="취소"></Button>
     </ButtonGroup>
   );
