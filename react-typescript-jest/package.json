@@ -7,7 +7,9 @@
     "dev": "webpack-dev-server --open --progress --config ./config/webpack.dev.js",
     "start": "webpack --progress --config ./config/webpack.dev.js",
     "build": "webpack --progress --config ./config/webpack.prod.js",
-    "test": "jest --watchAll --coverage"
+    "test": "jest --watchAll --coverage",
+    "cypress": "cypress open",
+    "cypress:chrome": "cypress run --browser chrome"
   },
   "author": "",
   "license": "MIT",
@@ -32,6 +34,7 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
+    "cypress": "^10.1.0",
     "dotenv-webpack": "^7.0.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
