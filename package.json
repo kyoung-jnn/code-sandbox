@@ -1,0 +1,10 @@
+{
+  "name": "code-sandbox",
+  "packageManager": "yarn@4.0.2",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "react-sandbox": "yarn workspace react-sandbox"
+  }
+}
