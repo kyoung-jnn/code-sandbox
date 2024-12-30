@@ -5,10 +5,12 @@
     "packages/*"
   ],
   "scripts": {
-    "react-sandbox": "yarn workspace react-sandbox"
+    "react-sandbox": "yarn workspace react-sandbox",
+    "nextjs-sandbox": "yarn workspace nextjs-sandbox"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^6.14.0",
+    "prettier": "^3.4.2",
     "typescript": "^5.2.2"
   }
 }
