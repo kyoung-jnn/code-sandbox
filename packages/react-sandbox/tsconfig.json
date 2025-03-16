@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compileOnSave": true,
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true /** ts, mts, tsx 파일간 Import 가능 */
   },
   "include": ["src", "vite.config.ts"]

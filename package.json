@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "react-sandbox": "yarn workspace react-sandbox",
-    "nextjs-sandbox": "yarn workspace nextjs-sandbox"
+    "react": "yarn workspace react-sandbox",
+    "nextjs": "yarn workspace nextjs-sandbox"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^6.14.0",
