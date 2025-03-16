@@ -1,22 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 
-const debounce = (func: Function, delay: number = 1000) => {
-  let id: number; // 클로져
+const debounce = <Params extends unknown[]>(
+  func: (...args: Params) => void,
+  delay: number = 1000,
+) => {
+  let timeoutId: number | null = null;
 
-  const set = (...arg: unknown[]) => {
-    clearTimeout(id);
-    id = setTimeout(() => {
-      func(...arg);
+  return (...args: Params) => {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+      timeoutId = null;
     }, delay);
   };
-  return set;
 };
 
-const useDebounce = (func: Function, delay: number = 1000) => {
+const useDebounce = <Params extends unknown[]>(
+  func: (...args: Params) => void,
+  delay: number = 1000,
+) => {
   const timeoutRef = useRef<number>(null);
 
   useEffect(() => {
-    // 컴포넌트 언마운트 시 타이머 제거
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -24,7 +29,7 @@ const useDebounce = (func: Function, delay: number = 1000) => {
     };
   }, []);
 
-  const debouncedFunc = (...args: unknown[]) => {
+  const debouncedFunc = (...args: Params) => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
